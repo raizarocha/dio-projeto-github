@@ -1,5 +1,5 @@
 # Repositório do Desafio de Projeto sobre Git/GitHub da Dio
-Repositório criado para o desafio de projeto , onde foi colocado em prática o conteúdo sobre Versionamento de Código com Git e GitHub.
+Repositório criado para o desafio de projeto , onde foi colocado em prática o conteúdo sobre Versionamento de Código com Git e GitHub da [Digital Innovation One](https://www.dio.me/).
 
 ## 📚 Documentação
 - [Documentação Git](https://git-scm.com/doc)

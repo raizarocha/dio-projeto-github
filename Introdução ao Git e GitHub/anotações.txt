@@ -1,0 +1,65 @@
+VERSIONAMENTO DE CÓDIGO COM GIT E GITHUB
+
+git config –global –show-origin credential.helper >> mostra caminho onde a configuração está armazenada;
+cat .gitconfig >> mostra os valores que estão configurados, como nome, email, nome da branch, credential, etc;
+cat .git-credentials >> retorna o token gerado pelo github;
+
+criar pasta; 
+utilizar comando “git init” para iniciar repositório da pasta;
+conectar pasta com repositório remoto, utiliza os comandos: git remote add origin URL(copia link https do github);
+clonar repositório com novo nome: git clone URL nome-para-repo-local(se n passar o nome é criado uma pasta com nome “repo-remoto”);
+git clone URL –branch nome-da-branch –single-branch (se n passar o nome da branch que deseja clonar, é automaticamente clonado apenas a branch principal);
+
+
+readme.so: site para criar readme;
+echo resumos/ > .gitignore: coloca pasta resumos no gitignore;
+touch aulas/.gitkeep: o gitkeep é utilizado para que seja possível exibir diretórios vazios;
+
+
+
+
+ALTERAR NOME DO COMMIT::
+git commit ammend -m “alterações no nome do commit”;
+se não colocar o -m “alterações”, o terminal abre uma janela editável;
+
+
+REVERTER COMMITS:
+Normalmente colocamos o hash do commit para o estado no qual desejamos retornar;
+
+*(o hash é uma numeração obtida ao usar o comando git log, sequências de números que aparece ao lado do nome commit);
+
+git reset –soft hash do commit*, pega as alterações/arquivos dos commits posteriores ao usado para fazer o reset, e os coloca na área de preparação (precisam ser commitados);
+
+git reset –mixed hash do commit* (ou apenas git reset), pega os commits posteriores ao usado para fazer o reset e os coloca na área de trabalho (precisam ser adicionados a área de preparação e commitados novamente);
+
+git reset –hard hash do commit*, pega os commits posteriores ao usados para fazer o reset e apaga as alterações/arquivos do repositório;
+
+git reflog traz todas as alterações realizadas no stage, incluindo os commits excluídos;
+
+git reset nome-do-arquivo (retira da área de preparação);
+outra forma:
+git restore –staged nome-do-arquivo, retira os arquivos da área de preparação;
+
+
+BRANCHES
+É possível mergear uma outra branch na main, utilizando os comandos git merge nome-da-branch (estando na branch main);
+
+Excluir branches:
+git branch -d nome-da-branch;
+
+Quando ocorrer conflito nos commits, os arquivos com as alterações indicam as duas alterações, e é preciso decidir qual alteração vai ser mantida, corrigir e enviar novamente para o repositório remoto;
+
+O git pull equivale ao git fetch + git merge;
+
+git fetch ou git fetch origin main:
+O git fetch é utilizado, quando queremos pegar as alterações do repositório remoto, sem mesclar automaticamente com o repositório local;
+
+git diff origin origin/main:
+Utilizado para exibir a diferença entre as duas branches (origin e origin/main);
+Para mesclar as alterações, após utilizar o git fetch, deve-se utilizar o git merge nome-da-branch-remota;
+
+É possível clonar apenas uma branch, utilizando os comandos git clone URL-do-repo-local –branch nome-da-branch –single-branch;
+
+Ao criar uma nova branch a partir de outra, que já teve várias alterações realizadas, podemos arquivar as alterações, antes de criar a nova branch, com os comandos git stash;
+
+Ao retornar para a branch que teve os arquivos alterados, arquivados, podemos usar o git stash apply, que retornará as alterações que estavam arquivadas. Obs. O git stash pop, exclui a última alteração realizada; 
